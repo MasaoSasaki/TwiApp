@@ -73,3 +73,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# 認証用gem
+gem 'devise'
