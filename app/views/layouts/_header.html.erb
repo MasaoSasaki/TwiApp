@@ -1,0 +1,9 @@
+<% if user_signed_in? %>
+  <p>ログイン中</p>
+  <%= current_user.email %>
+  <%= button_to 'ログアウト', destroy_user_session_path, class: "btn btn-danger user-sign_out", method: :delete %>
+<% else %>
+  <p>ログアウト中</p>
+  <%= button_to "新規登録", new_user_registration_path %>
+  <%= button_to "ログイン", new_user_session_path, method: :get %>
+<% end %>
