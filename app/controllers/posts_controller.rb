@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   def index
+    user = User.find(current_user.id)
+    @posts = user.posts
   end
   def show
   end
