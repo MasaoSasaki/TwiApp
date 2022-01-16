@@ -11,7 +11,9 @@
           <p class="text-gray-600"><%= post.created_at.strftime("%F %T") %></p>
         </div>
         <p class="p-4"><%= safe_join(post.body.split("\n"),tag(:br)) %></p>
-        <span><%= button_to "", post_path(post), method: :delete, class: "fas fa-trash-alt" %></span>
+        <% if post.user_id === current_user.id %>
+          <span><%= button_to "", post_path(post), method: :delete, class: "fas fa-trash-alt" %></span>
+        <% end %>
       </div>
     <% end %>
   </div>
