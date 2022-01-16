@@ -1,12 +1,17 @@
-<div>
-  <h1 class="font-bold text-4xl">Posts#index</h1>
-  <div class="user-profile">
+<div class="w-full">
+  <div class="max-w-xl w-full mx-auto">
     <p><%= current_user.handle_name %></p>
+    <hr>
   </div>
-  <% @posts.each do |post| %>
-    <div class="post-card" style="padding:20px;">
-      <p><%= post.user.handle_name %></p>
-      <p><%= post.body %></p>
-    </div>
-  <% end %>
+  <div class="max-w-xl w-full mx-auto">
+    <% @posts.each do |post| %>
+      <div class="max-w-sm w-full border border-gray-400 lg:border-gray-400 bg-white rounded-b p-4 m-4 flex flex-col justify-between leading-normal">
+        <div class="text-sm">
+          <p class="text-gray-900 leading-none"><%= post.user.handle_name %></p>
+          <p class="text-gray-600"><%= post.created_at %></p>
+        </div>
+        <p class="p-4"><%= safe_join(post.body.split("\n"),tag(:br)) %></p>
+      </div>
+    <% end %>
+  </div>
 </div>
