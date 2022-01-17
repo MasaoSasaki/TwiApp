@@ -13,6 +13,12 @@ class PostsController < ApplicationController
     post = Post.new(post_params)
     post.user_id = current_user.id
     if post.save
+      # フォームの中身をクリア（このままだとDoubleRenderエラー）
+      # render turbo_stream: turbo_stream.replace(
+      #   'post-form',
+      #   partial: 'posts/post_form',
+      #   locals: {post: Post.new}
+      # )
       render turbo_stream: turbo_stream.replace(
         'post-list',
         partial: 'posts/post_list',
