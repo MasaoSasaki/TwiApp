@@ -1,20 +1,10 @@
 <div class="w-full">
-  <div class="max-w-xl w-full mx-auto">
+  <div class="max-w-2xl w-full mx-auto py-8">
     <p><%= current_user.handle_name %></p>
     <hr>
   </div>
-  <div class="max-w-xl w-full mx-auto">
-    <% @posts.each do |post| %>
-      <div class="max-w-sm w-full border border-gray-400 lg:border-gray-400 bg-white rounded-b p-4 m-4 flex flex-col justify-between leading-normal">
-        <div class="text-sm">
-          <p class="text-gray-900 leading-none"><%= post.user.handle_name %></p>
-          <p class="text-gray-600"><%= post.created_at.strftime("%F %T") %></p>
-        </div>
-        <p class="p-4"><%= safe_join(post.body.split("\n"),tag(:br)) %></p>
-        <% if post.user_id === current_user.id %>
-          <span><%= button_to "", post_path(post), method: :delete, class: "fas fa-trash-alt" %></span>
-        <% end %>
-      </div>
-    <% end %>
+  <div class="flex">
+    <%= render partial: "post_form", locals: {post: @post} %>
+    <%= render partial: "post_list", locals: {posts: @posts} %>
   </div>
 </div>
