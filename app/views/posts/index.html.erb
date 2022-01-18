@@ -3,8 +3,5 @@
     <p><%= current_user.handle_name %></p>
     <hr>
   </div>
-  <div class="flex">
-    <%= render partial: "post_form", locals: {post: @post} %>
-    <%= render partial: "post_list", locals: {posts: @posts} %>
-  </div>
+  <%= render partial: "post_list", locals: {posts: @posts, post: @post} %>
 </div>

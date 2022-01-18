@@ -4,25 +4,21 @@ class PostsController < ApplicationController
     @posts = Post.all.order(id: "DESC")
   end
   def show
+    @post = Post.find(params[:id])
   end
   def new
   end
   def edit
+    @post = Post.find(params[:id])
   end
   def create
     post = Post.new(post_params)
     post.user_id = current_user.id
     if post.save
-      # フォームの中身をクリア（このままだとDoubleRenderエラー）
-      # render turbo_stream: turbo_stream.replace(
-      #   'post-form',
-      #   partial: 'posts/post_form',
-      #   locals: {post: Post.new}
-      # )
       render turbo_stream: turbo_stream.replace(
         'post-list',
         partial: 'posts/post_list',
-        locals: {posts: Post.all.order(id: "DESC")}
+        locals: {posts: Post.all.order(id: "DESC"), post: Post.new}
       )
     else
       p "NG"
@@ -36,7 +32,7 @@ class PostsController < ApplicationController
       render turbo_stream: turbo_stream.replace(
         'post-list',
         partial: 'posts/post_list',
-        locals: {posts: Post.all.order(id: "DESC")}
+        locals: {posts: Post.all.order(id: "DESC"), post: Post.new}
       )
     end
   end
