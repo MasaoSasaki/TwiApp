@@ -3,5 +3,11 @@
     <p><%= current_user.handle_name %></p>
     <hr>
   </div>
-  <%= render partial: "post_list", locals: {posts: @posts, post: @post} %>
+  <div class="flex">
+    <%= turbo_frame_tag 'new_post', src: new_post_path do %>
+    <% end %>
+    <div id="posts" class="max-w-sm w-full mx-auto">
+      <%= render @posts %>
+    </div>
+  </div>
 </div>
