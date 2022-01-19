@@ -1,0 +1,13 @@
+<%= turbo_stream_from post %>
+<%= turbo_frame_tag post do %>
+  <div class="border border-gray-400 lg:border-gray-400 bg-white rounded-b p-4 m-4 flex flex-col justify-between leading-normal">
+    <div class="text-sm">
+      <p class="text-gray-900 leading-none"><%= post.user.handle_name %></p>
+      <p class="text-gray-600"><%= post.created_at.strftime("%F %T") %></p>
+    </div>
+    <%= simple_format(post.body, class: "p-2") %>
+    <% if user_signed_in? && post.user_id === current_user.id %>
+      <span><%= button_to "", post_path(post), method: :delete, class: "fas fa-trash-alt" %></span>
+    <% end %>
+  </div>
+<% end %>

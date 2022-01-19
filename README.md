@@ -1,24 +1,14 @@
-# README
+# TwiApp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 使用技術
 
-Things you may want to cover:
+Ruby 3.0.1  
+Rails 7.0.2  
 
-* Ruby version
+  
+## 機能一覧
+* ユーザーの新規登録・ログイン機能
+* コメントの投稿・削除機能
+* 投稿・削除の非同期処理
+* 削除のリアルタイム更新(Hotwire-Railsを使用)
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
