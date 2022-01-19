@@ -12,12 +12,12 @@
   </head>
 
   <body>
-    <header class="flex">
+    <header class="flex text-gray-600 body-font">
       <%= render partial: "layouts/header" %>
     </header>
     <main class="container mx-auto px-5 py-10">
       <%= yield %>
     </main>
-    <footer>Footer</footer>
+    <footer class="container mx-auto"><div class="p-5"><p class="text-center">©︎ 2022 Masao Sasaki.</p></div></footer>
   </body>
 </html>
