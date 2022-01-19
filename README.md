@@ -15,5 +15,5 @@ Rails 7.0.1
 
 
 ## アカウント
-email: test@test.com/password: "000000"
-email: test2@test2.com/password: "000000"
+email: test@test.com/password: "000000"  
+email: test2@test2.com/password: "000000"  
