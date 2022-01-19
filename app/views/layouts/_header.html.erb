@@ -1,0 +1,14 @@
+<div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+  <h2 class="font-black py-3">TwiApp</h2>
+  <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
+    <% if user_signed_in? %>
+      <%= link_to '投稿一覧', posts_path, class: "mr-5 hover:text-gray-900" %>
+      <%= link_to '投稿する', new_post_path, class: "mr-5 hover:text-gray-900" %>
+      <%= button_to 'ログアウト', destroy_user_session_path, class: "mr-5 hover:text-gray-900 bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full", method: :delete %>
+    <% else %>
+      <%= link_to '投稿一覧', posts_path, class: "mr-5 hover:text-gray-900" %>
+      <%= link_to "新規登録", new_user_registration_path, class: "mr-5 hover:text-gray-900 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full" %>
+      <%= link_to "ログイン", new_user_session_path, class: "mr-5 hover:text-gray-900 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full", method: :get %>
+    <% end %>
+  </nav>
+</div>
