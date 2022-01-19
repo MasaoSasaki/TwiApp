@@ -1,4 +1,5 @@
-<%= turbo_stream.prepend 'posts', @post do %><% end %>
+<%= turbo_stream.prepend 'posts', @post do %>
+<% end %>
 
 <%= turbo_stream.replace 'new_post' do %>
   <%= turbo_frame_tag 'new_post', src: new_post_path do %>

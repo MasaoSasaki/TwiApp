@@ -1,10 +1,14 @@
 <div class="w-full">
-  <div class="max-w-2xl w-full mx-auto py-8">
-    <p><%= current_user.handle_name %></p>
-    <hr>
-  </div>
-  <div class="flex">
-    <%= turbo_frame_tag 'new_post', src: new_post_path do %>
+  <% if user_signed_in? %>
+    <div class="max-w-2xl w-full mx-auto py-8">
+      <p><%= current_user.handle_name %></p>
+      <hr>
+    </div>
+  <% end %>
+  <div class="md:flex">
+    <% if user_signed_in? %>
+      <%= turbo_frame_tag 'new_post', src: new_post_path do %>
+      <% end %>
     <% end %>
     <div id="posts" class="max-w-sm w-full mx-auto">
       <%= render @posts %>
