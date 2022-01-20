@@ -2,9 +2,9 @@
 https://twi-app-ssk.herokuapp.com/posts  
 
 ## 使用技術
-
 Ruby 3.0.2  
 Rails 7.0.1  
+TailwindCSS  
 
 
 ## 機能一覧
